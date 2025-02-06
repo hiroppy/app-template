@@ -4,12 +4,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
-import { create } from "../../_actions/items";
-import { Input } from "../../_components/Input";
-import { type ItemSchema, itemSchema } from "../../_schemas/items";
-import { Dialog } from "../_components/Dialog";
+import { create } from "../../../_actions/items";
+import { Input } from "../../../_components/Input";
+import { type ItemSchema, itemSchema } from "../../../_schemas/items";
+import { Dialog } from "../../_components/Dialog";
 
-export function Content() {
+export function Form() {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const {

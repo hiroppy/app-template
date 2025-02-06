@@ -1,4 +1,5 @@
 import type { Route } from "next";
+import { unstable_cacheTag as cacheTag } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -11,11 +12,11 @@ import { format } from "../_utils/date";
 export default async function Page() {
   return (
     <div className="space-y-5">
-      <Suspense fallback={<p>loading ...</p>}>
+      <Suspense fallback={<p>loading...</p>}>
         <Status />
       </Suspense>
-      <Suspense fallback={<p>loading ...</p>}>
-        <List />
+      <Suspense fallback={<p>loading...</p>}>
+        <ItemList />
       </Suspense>
     </div>
   );
@@ -47,7 +48,11 @@ async function Status() {
   );
 }
 
-async function List() {
+async function ItemList() {
+  "use cache";
+
+  cacheTag("items");
+
   const data = await prisma.item.findMany({
     include: {
       user: true,

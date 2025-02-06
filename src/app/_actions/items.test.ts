@@ -25,13 +25,13 @@ describe("actions/items", () => {
         success: true,
         data: expected,
       });
-      expect(mock.revalidatePath.mock.calls).toMatchInlineSnapshot(`
-      [
+      expect(mock.revalidateTag.mock.calls).toMatchInlineSnapshot(`
         [
-          "/",
-        ],
-      ]
-    `);
+          [
+            "items",
+          ],
+        ]
+      `);
       expect(await prisma.item.findMany()).toMatchObject([expected]);
     });
 
@@ -82,10 +82,10 @@ describe("actions/items", () => {
       await deleteAll();
       expect(await prisma.item.count()).toBe(0);
 
-      expect(mock.revalidatePath.mock.calls).toMatchInlineSnapshot(`
+      expect(mock.revalidateTag.mock.calls).toMatchInlineSnapshot(`
         [
           [
-            "/",
+            "items",
           ],
         ]
       `);
