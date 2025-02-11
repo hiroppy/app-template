@@ -47,6 +47,7 @@ const nextConfig: NextConfig = {
     typedRoutes: true,
     authInterrupts: true,
     dynamicIO: true,
+    ppr: true,
   },
   /* start: otel */
   webpack: (config, { isServer }) => {
