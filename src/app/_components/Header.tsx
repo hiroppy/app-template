@@ -46,7 +46,7 @@ async function Avatar() {
 async function Action() {
   const session = await getSessionOrReject();
 
-  if (!session) {
+  if (!session.success) {
     return <SignInButton />;
   }
 
