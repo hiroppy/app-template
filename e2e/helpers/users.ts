@@ -13,7 +13,7 @@ export async function registerUserToDB(user: User) {
         create: {
           type: "oauth",
           provider: "google",
-          providerAccountId: `${Math.random()}`,
+          providerAccountId: "google-123",
           id_token: "id_token",
           access_token: "access_token",
           token_type: "Bearer",

@@ -547,6 +547,8 @@ exports[`no-otel > should update next.config.ts 1`] = `
   "  experimental: {",
   "    typedRoutes: true,",
   "    authInterrupts: true,",
+  "    dynamicIO: true,",
+  "    ppr: true,",
   "  },",
   "};",
   "",
